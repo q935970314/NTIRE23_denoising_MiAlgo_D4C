@@ -37,7 +37,6 @@ def select_model(args, device):
         from models.team02_MiAlgo import D4C
         name, data_range = f"{model_id:02}_D4C", 1.0
         model = D4C()
-        # model_path = os.path.join("model_zoo", "team02_MiAlgo")
         model_path = "model_zoo"
         
         def get_net(net, sub_model_name):
@@ -53,15 +52,7 @@ def select_model(args, device):
                     load_net.pop(k)
 
             net.load_state_dict(load_net, strict=True)
-            
-        # get_net(model.hat, "hat_60000.pth")
-        # get_net(model.restormer, "restormer_500000.pth")
-        # get_net(model.swinir, "swinir_460000.pth")
-        # get_net(model.rrdb, "rrdb_380000.pth")
-        # get_net(model, "net_g_1500.pth")
-        # get_net(model.naf, "team02_MiAlgo/naf_final_3.5.pth")
 
-        # torch.save(model.state_dict(), "team02_MiAlgo.pth")
         get_net(model, "team02_MiAlgo.pth")
 
         model = model.cuda()
@@ -167,7 +158,6 @@ def run(model, model_name, data_range, tile, logger, device, args, mode="test"):
         # --------------------------------
         img_name, ext = os.path.splitext(os.path.basename(img_hr))
         img_noisy = util.imread_uint(img_noisy, n_channels=3)
-        # print(img_noisy.shape)
         img_noisy = util.uint2tensor4(img_noisy, data_range)
         img_noisy = img_noisy.to(device)
 
