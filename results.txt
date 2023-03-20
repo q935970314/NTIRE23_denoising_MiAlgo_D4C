@@ -1,0 +1,2 @@
+Model               	Val PSNR  	Val Time [ms] 	Params [M]	FLOPs [G] 	Acts [M]	Mem [M] 	Conv    
+02_D4C              	31.05     	123192.07     	205.609   	3347.43   	4111.07 	6615.90 	1055    
